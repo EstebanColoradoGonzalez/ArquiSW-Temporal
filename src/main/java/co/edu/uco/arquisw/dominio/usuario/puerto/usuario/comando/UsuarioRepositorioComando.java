@@ -6,5 +6,4 @@ public interface UsuarioRepositorioComando
     void actualizar(String correo, String clave, Long id);
     void eliminar(Long id);
     boolean existeCorreo(String correo);
-
 }

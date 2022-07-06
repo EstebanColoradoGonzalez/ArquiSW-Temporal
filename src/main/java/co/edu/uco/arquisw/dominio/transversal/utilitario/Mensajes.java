@@ -18,6 +18,8 @@ public class Mensajes
     public static final String LONGITUD_CLAVE_PERSONA_INVALIDA = "La longitud de la clave debe estar entre 8 y 100 caracteres";
     public static final String PATRON_CLAVE_PERSONA_NO_ES_VALIDO = "La clave debe tener minimo una minuscula, una mayuscula y un numero";
     public static final String OCURRIO_UN_ERROR_FAVOR_CONTACTAR_AL_ADMINISTRADOR = "Ocurrió un error favor contactar al administrador.";
+    public static final String EXISTE_USUARIO_CON_CORREO = "Ya existe un usuario con ese correo";
+    public static final String NO_EXISTE_USUARIO_CON_EL_ID = "No existe un usuario con el id ";
 
     private Mensajes()
     {

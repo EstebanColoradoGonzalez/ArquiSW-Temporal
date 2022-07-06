@@ -4,6 +4,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 import co.edu.uco.arquisw.dominio.transversal.excepciones.LongitudExcepcion;
 import co.edu.uco.arquisw.dominio.transversal.excepciones.PatronExcepcion;
+import co.edu.uco.arquisw.dominio.transversal.excepciones.ValorInvalidoExcepcion;
 import co.edu.uco.arquisw.dominio.transversal.excepciones.ValorObligatorioExcepcion;
 import co.edu.uco.arquisw.dominio.transversal.utilitario.Mensajes;
 import co.edu.uco.arquisw.dominio.transversal.validador.ValidarObjeto;
@@ -26,6 +27,8 @@ public class ManejadorError extends ResponseEntityExceptionHandler
         CODIGOS_ESTADO.put(ValorObligatorioExcepcion.class.getSimpleName(), HttpStatus.BAD_REQUEST.value());
         CODIGOS_ESTADO.put(LongitudExcepcion.class.getSimpleName(), HttpStatus.BAD_REQUEST.value());
         CODIGOS_ESTADO.put(PatronExcepcion.class.getSimpleName(), HttpStatus.BAD_REQUEST.value());
+        CODIGOS_ESTADO.put(ValorInvalidoExcepcion.class.getSimpleName(), HttpStatus.BAD_REQUEST.value());
+        CODIGOS_ESTADO.put(NullPointerException.class.getSimpleName(), HttpStatus.BAD_REQUEST.value());
     }
 
     @ExceptionHandler(Exception.class)
