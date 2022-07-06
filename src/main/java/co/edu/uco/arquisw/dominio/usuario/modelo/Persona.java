@@ -30,80 +30,36 @@ public class Persona
 
     private void setNombre(String nombre)
     {
-        if(ValidarTexto.cadenaEstaVacia(nombre))
-        {
-            throw new IllegalArgumentException(Mensajes.NOMBRE_NO_PUEDE_ESTAR_VACIO);
-        }
-
-        if(!ValidarTexto.cadenaAlfanumerica(nombre))
-        {
-            throw new IllegalArgumentException("El nombre solo puede contener letras y numeros");
-        }
-
-        if(!ValidarTexto.longitudEsValida(nombre, 1, 50))
-        {
-            throw new IllegalArgumentException("La longitud del nombre debe estar entre 1 y 50 caracteres");
-        }
+        ValidarTexto.validarObligatorio(nombre, Mensajes.NOMBRE_PERSONA_NO_PUEDE_ESTAR_VACIO);
+        ValidarTexto.validarSiLongitudEsValida(nombre, 1, 50, Mensajes.LONGITUD_NOMBRE_PERSONA_INVALIDA);
+        ValidarTexto.validarPatronAlfanumericoEsValido(nombre, Mensajes.PATRON_NOMBRE_PERSONA_NO_ES_VALIDO);
 
         this.nombre = nombre;
     }
 
     public void setApellidos(String apellidos)
     {
-        if(ValidarTexto.cadenaEstaVacia(apellidos))
-        {
-            throw new IllegalArgumentException("Los apellidos de una persona no pueden ser vacios");
-        }
-
-        if(!ValidarTexto.cadenaAlfanumerica(apellidos))
-        {
-            throw new IllegalArgumentException("Los apellidos solo puede contener letras y numeros");
-        }
-
-        if(!ValidarTexto.longitudEsValida(apellidos, 1, 50))
-        {
-            throw new IllegalArgumentException("La longitud de los apellidos debe estar entre 1 y 50 caracteres");
-        }
+        ValidarTexto.validarObligatorio(apellidos, Mensajes.APELLIDOS_PERSONA_NO_PUEDE_ESTAR_VACIO);
+        ValidarTexto.validarSiLongitudEsValida(apellidos, 1, 50, Mensajes.LONGITUD_APELLIDOS_PERSONA_INVALIDA);
+        ValidarTexto.validarPatronAlfanumericoEsValido(apellidos, Mensajes.PATRON_APELLIDOS_PERSONA_NO_ES_VALIDO);
 
         this.apellidos = apellidos;
     }
 
     private void setCorreo(String correo)
     {
-        if(ValidarTexto.cadenaEstaVacia(correo))
-        {
-            throw new IllegalArgumentException("El correo no puede estar vacio");
-        }
-
-        if(!ValidarTexto.cadenaCorreo(correo))
-        {
-            throw new IllegalArgumentException("el correo debe cumplir el patron de @example.com");
-        }
-
-        if(!ValidarTexto.longitudEsValida(correo, 10, 100))
-        {
-            throw new IllegalArgumentException("La longitud del correo debe estar entre 10 y 100 caracteres");
-        }
+        ValidarTexto.validarObligatorio(correo, Mensajes.CORREO_PERSONA_NO_PUEDE_ESTAR_VACIO);
+        ValidarTexto.validarSiLongitudEsValida(correo, 10, 100, Mensajes.LONGITUD_CORREO_PERSONA_INVALIDA);
+        ValidarTexto.validarCorreoEsValido(correo, Mensajes.PATRON_CORREO_PERSONA_NO_ES_VALIDO);
 
         this.correo = correo;
     }
 
     public void setClave(String clave)
     {
-        if(ValidarTexto.cadenaEstaVacia(clave))
-        {
-            throw new IllegalArgumentException("La clave no puede estar vacia");
-        }
-
-        if(!ValidarTexto.cadenaClave(clave))
-        {
-            throw new IllegalArgumentException("La clave debe cumplir el patron de @example.com");
-        }
-
-        if(!ValidarTexto.longitudEsValida(clave, 10, 100))
-        {
-            throw new IllegalArgumentException("La longitud de la clave debe estar entre 8 y 100 caracteres");
-        }
+        ValidarTexto.validarObligatorio(clave, Mensajes.CLAVE_PERSONA_NO_PUEDE_ESTAR_VACIO);
+        ValidarTexto.validarSiLongitudEsValida(clave, 8, 100, Mensajes.LONGITUD_CLAVE_PERSONA_INVALIDA);
+        ValidarTexto.validarClaveEsValida(clave, Mensajes.PATRON_CLAVE_PERSONA_NO_ES_VALIDO);
 
         this.clave = clave;
     }

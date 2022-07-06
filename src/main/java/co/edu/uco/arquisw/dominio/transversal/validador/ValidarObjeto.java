@@ -12,8 +12,8 @@ public class ValidarObjeto
         return object == null;
     }
 
-    public static <T> T obtenerValorPorDefecto(T object, T defaultValue)
+    public static <T> T obtenerValorPorDefecto(T objeto, T valorPorDefecto)
     {
-        return esNulo(object) ? defaultValue : object;
+        return esNulo(objeto) ? valorPorDefecto : objeto;
     }
 }

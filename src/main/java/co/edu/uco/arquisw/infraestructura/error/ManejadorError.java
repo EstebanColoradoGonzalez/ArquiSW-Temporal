@@ -1,6 +1,12 @@
 package co.edu.uco.arquisw.infraestructura.error;
 
 import java.util.concurrent.ConcurrentHashMap;
+
+import co.edu.uco.arquisw.dominio.transversal.excepciones.LongitudExcepcion;
+import co.edu.uco.arquisw.dominio.transversal.excepciones.PatronExcepcion;
+import co.edu.uco.arquisw.dominio.transversal.excepciones.ValorObligatorioExcepcion;
+import co.edu.uco.arquisw.dominio.transversal.utilitario.Mensajes;
+import co.edu.uco.arquisw.dominio.transversal.validador.ValidarObjeto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -17,7 +23,9 @@ public class ManejadorError extends ResponseEntityExceptionHandler
 
     public ManejadorError()
     {
-        CODIGOS_ESTADO.put(IllegalStateException.class.getSimpleName(), HttpStatus.CONFLICT.value());
+        CODIGOS_ESTADO.put(ValorObligatorioExcepcion.class.getSimpleName(), HttpStatus.BAD_REQUEST.value());
+        CODIGOS_ESTADO.put(LongitudExcepcion.class.getSimpleName(), HttpStatus.BAD_REQUEST.value());
+        CODIGOS_ESTADO.put(PatronExcepcion.class.getSimpleName(), HttpStatus.BAD_REQUEST.value());
     }
 
     @ExceptionHandler(Exception.class)
@@ -29,7 +37,7 @@ public class ManejadorError extends ResponseEntityExceptionHandler
         String mensaje = exception.getMessage();
         Integer codigo = CODIGOS_ESTADO.get(excepcionNombre);
 
-        if (codigo != null)
+        if (!ValidarObjeto.esNulo(codigo))
         {
             Error error = new Error(excepcionNombre, mensaje);
             resultado = new ResponseEntity<>(error, HttpStatus.valueOf(codigo));
@@ -37,7 +45,7 @@ public class ManejadorError extends ResponseEntityExceptionHandler
         else
         {
             LOGGER_ERROR.error(excepcionNombre, exception);
-            Error error = new Error(excepcionNombre, mensaje);
+            Error error = new Error(excepcionNombre, Mensajes.OCURRIO_UN_ERROR_FAVOR_CONTACTAR_AL_ADMINISTRADOR);
             resultado = new ResponseEntity<>(error, HttpStatus.INTERNAL_SERVER_ERROR);
         }
 

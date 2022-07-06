@@ -1,5 +1,9 @@
 package co.edu.uco.arquisw.dominio.transversal.validador;
 
+import co.edu.uco.arquisw.dominio.transversal.excepciones.LongitudExcepcion;
+import co.edu.uco.arquisw.dominio.transversal.excepciones.PatronExcepcion;
+import co.edu.uco.arquisw.dominio.transversal.excepciones.ValorObligatorioExcepcion;
+
 public class ValidarTexto
 {
     private static final String LETRAS_Y_ESPACIOS = "^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]*$";
@@ -9,11 +13,63 @@ public class ValidarTexto
     private static final String CLAVE = "^(?=.*[a-z])(?=.*[A-Z])(?=.*?[0-9]).{8,}$";
     private static final String URL = "^(ftp|http|https):\\/\\/[^ \"]+$";
     private static final String URL_ID = "^((\\d{8})|(\\d{10})|(\\d{11})|(\\d{6}-\\d{5}))?$";
-    public static final String VACIO = "";
 
     private ValidarTexto()
     {
 
+    }
+
+    public static void validarObligatorio(String valor, String mensaje)
+    {
+        if(cadenaEstaVacia(valor))
+        {
+            throw new ValorObligatorioExcepcion(mensaje);
+        }
+    }
+
+    public static void validarSiLongitudEsValida(String valor, int longitudMinima, int longitudMaxima, String mensaje)
+    {
+        if(longitudEsInvalida(valor, longitudMinima, longitudMaxima))
+        {
+            throw new LongitudExcepcion(mensaje);
+        }
+    }
+
+    public static void validarPatronLetrasYEspaciosEsValido(String valor, String mensaje)
+    {
+        if(!cadenaLetrasYEspacios(valor))
+        {
+            throw new PatronExcepcion(mensaje);
+        }
+    }
+
+    public static void validarPatronAlfanumericoEsValido(String valor, String mensaje)
+    {
+        if(cadenaNoEsAlfanumerica(valor))
+        {
+            throw new PatronExcepcion(mensaje);
+        }
+    }
+
+    public static void validarClaveEsValida(String valor, String mensaje)
+    {
+        if(!cadenaCorreo(valor))
+        {
+            throw new PatronExcepcion(mensaje);
+        }
+    }
+
+    public static void validarCorreoEsValido(String valor, String mensaje)
+    {
+        if(!cadenaClave(valor))
+        {
+            throw new PatronExcepcion(mensaje);
+        }
+    }
+
+    public static boolean cadenaEstaVacia(String string)
+    {
+        return cadenaEsNula(string) || "".equals(aplicarTrim(string));
     }
 
     public static boolean cadenaEsNula(String string)
@@ -21,26 +77,14 @@ public class ValidarTexto
         return ValidarObjeto.esNulo(string);
     }
 
-    public static String obtenerValorPorDefecto(String string)
-    {
-        return ValidarObjeto.obtenerValorPorDefecto(string, "");
-    }
-
     public static String aplicarTrim(String string)
     {
         return obtenerValorPorDefecto(string.trim());
     }
 
-    public static boolean cadenaEstaVacia(String string)
+    public static String obtenerValorPorDefecto(String string)
     {
-        String newString = "";
-
-        if(!cadenaEsNula(string))
-        {
-            newString = string;
-        }
-
-        return "".equals(aplicarTrim(newString));
+        return ValidarObjeto.obtenerValorPorDefecto(string, "");
     }
 
     public static boolean longitudMinimaValida(String string, int minimumLength)
@@ -53,9 +97,9 @@ public class ValidarTexto
         return aplicarTrim(string).length() <= maximumLength;
     }
 
-    public static boolean longitudEsValida(String string, int minimumLength, int maximumLength)
+    public static boolean longitudEsInvalida(String string, int minimumLength, int maximumLength)
     {
-        return longitudMinimaValida(string, minimumLength) && longitudMaximaValida( string, maximumLength);
+        return !longitudMinimaValida(string, minimumLength) || !longitudMaximaValida(string, maximumLength);
     }
 
     public static boolean cadenaAceptaElPatron(String string, String pattern)
@@ -68,9 +112,9 @@ public class ValidarTexto
         return cadenaAceptaElPatron(string, LETRAS_Y_ESPACIOS);
     }
 
-    public static boolean cadenaAlfanumerica(String string)
+    public static boolean cadenaNoEsAlfanumerica(String string)
     {
-        return cadenaAceptaElPatron(string, ALFANUMERICO);
+        return !cadenaAceptaElPatron(string, ALFANUMERICO);
     }
 
     public static boolean cadenaCorreo(String string)
