@@ -1,4 +1,4 @@
-package co.edu.uco.arquisw.dominio.usuario.puerto.persona.comando;
+package co.edu.uco.arquisw.dominio.usuario.puerto.comando;
 
 import co.edu.uco.arquisw.dominio.usuario.modelo.Persona;
 

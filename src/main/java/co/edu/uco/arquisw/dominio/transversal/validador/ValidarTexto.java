@@ -51,17 +51,17 @@ public class ValidarTexto
         }
     }
 
-    public static void validarClaveEsValida(String valor, String mensaje)
+    public static void validarCorreoEsValido(String valor, String mensaje)
     {
-        if(!cadenaClave(valor))
+        if(!cadenaCorreo(valor))
         {
             throw new PatronExcepcion(mensaje);
         }
     }
 
-    public static void validarCorreoEsValido(String valor, String mensaje)
+    public static void validarClaveEsValida(String valor, String mensaje)
     {
-        if(!cadenaCorreo(valor))
+        if(!cadenaClave(valor))
         {
             throw new PatronExcepcion(mensaje);
         }

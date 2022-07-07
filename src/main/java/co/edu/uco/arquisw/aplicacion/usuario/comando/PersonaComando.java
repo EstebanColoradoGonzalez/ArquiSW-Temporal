@@ -1,4 +1,4 @@
-package co.edu.uco.arquisw.dominio.usuario.dto;
+package co.edu.uco.arquisw.aplicacion.usuario.comando;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,8 +9,10 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class UsuarioDTO
+public class PersonaComando
 {
+    private String nombre;
+    private String apellidos;
     private String correo;
     private String clave;
 }

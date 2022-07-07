@@ -4,21 +4,18 @@ import co.edu.uco.arquisw.dominio.transversal.excepciones.ValorInvalidoExcepcion
 import co.edu.uco.arquisw.dominio.transversal.utilitario.Mensajes;
 import co.edu.uco.arquisw.dominio.transversal.validador.ValidarObjeto;
 import co.edu.uco.arquisw.dominio.usuario.modelo.Persona;
-import co.edu.uco.arquisw.dominio.usuario.puerto.persona.comando.PersonaRepositorioComando;
-import co.edu.uco.arquisw.dominio.usuario.puerto.persona.consulta.PersonaRepositorioConsulta;
-import co.edu.uco.arquisw.dominio.usuario.puerto.usuario.comando.UsuarioRepositorioComando;
+import co.edu.uco.arquisw.dominio.usuario.puerto.comando.PersonaRepositorioComando;
+import co.edu.uco.arquisw.dominio.usuario.puerto.consulta.PersonaRepositorioConsulta;
 
-public class ServicioGuardarUsuario
+public class ServicioGuardarPersona
 {
     private final PersonaRepositorioComando personaRepositorioComando;
     private final PersonaRepositorioConsulta personaRepositorioConsulta;
-    private final UsuarioRepositorioComando usuarioRepositorioComando;
 
-    public ServicioGuardarUsuario(PersonaRepositorioComando personaRepositorioComando, PersonaRepositorioConsulta personaRepositorioConsulta, UsuarioRepositorioComando usuarioRepositorioComando)
+    public ServicioGuardarPersona(PersonaRepositorioComando personaRepositorioComando, PersonaRepositorioConsulta personaRepositorioConsulta)
     {
         this.personaRepositorioComando = personaRepositorioComando;
         this.personaRepositorioConsulta = personaRepositorioConsulta;
-        this.usuarioRepositorioComando = usuarioRepositorioComando;
     }
 
     public Long ejecutar(Persona persona)
@@ -27,8 +24,6 @@ public class ServicioGuardarUsuario
          {
              throw new ValorInvalidoExcepcion(Mensajes.EXISTE_USUARIO_CON_CORREO);
          }
-
-         this.usuarioRepositorioComando.guardar(persona.getCorreo(),persona.getClave());
 
          return this.personaRepositorioComando.guardar(persona);
     }

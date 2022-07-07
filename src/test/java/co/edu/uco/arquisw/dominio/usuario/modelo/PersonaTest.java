@@ -62,14 +62,14 @@ public class PersonaTest {
                         "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaAAAaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","valencia","jjuandiego23@gmail.com","ASDasd1234",roles)).getMessage());
 
         Assertions.assertEquals("La longitud de los apellidos debe estar entre 1 y 50 caracteres",Assertions.assertThrows(LongitudExcepcion.class,() ->
-                Persona.crear("juan","aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaAAAaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                Persona.crear("juan","aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaAAAaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa1a",
                         "jjuandiego23@gmail.com","ASDasd1234",roles)).getMessage());
 
         Assertions.assertEquals("La longitud del correo debe estar entre 10 y 100 caracteres",Assertions.assertThrows(LongitudExcepcion.class,() ->
                 Persona.crear("juan","valencia","jju@com","ASDasd1234",roles)).getMessage());
 
         Assertions.assertEquals("La longitud de la clave debe estar entre 8 y 100 caracteres",Assertions.assertThrows(LongitudExcepcion.class,() ->
-                Persona.crear("juan","valencia","jjuandiego23@gmail.com","Asd",roles)).getMessage());
+                Persona.crear("juan","valencia","jjuandiego23@gmail.com","Asd1",roles)).getMessage());
     }
 
     @Test

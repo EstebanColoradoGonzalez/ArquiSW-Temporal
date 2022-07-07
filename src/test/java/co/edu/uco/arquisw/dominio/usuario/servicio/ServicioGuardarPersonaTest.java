@@ -1,16 +1,15 @@
 package co.edu.uco.arquisw.dominio.usuario.servicio;
 
 import co.edu.uco.arquisw.dominio.usuario.modelo.Persona;
-import co.edu.uco.arquisw.dominio.usuario.puerto.persona.comando.PersonaRepositorioComando;
-import co.edu.uco.arquisw.dominio.usuario.puerto.persona.consulta.PersonaRepositorioConsulta;
-import co.edu.uco.arquisw.dominio.usuario.puerto.usuario.comando.UsuarioRepositorioComando;
+import co.edu.uco.arquisw.dominio.usuario.puerto.comando.PersonaRepositorioComando;
+import co.edu.uco.arquisw.dominio.usuario.puerto.consulta.PersonaRepositorioConsulta;
 import co.edu.uco.arquisw.dominio.usuario.testdatabuilder.PersonaTestDataBuilder;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 
-public class ServicioGuardarUsuarioTest {
+public class ServicioGuardarPersonaTest {
 
     @Test
     void guardarExitoso()
@@ -19,9 +18,9 @@ public class ServicioGuardarUsuarioTest {
 
         var repositorioPersonaComando = Mockito.mock(PersonaRepositorioComando.class);
         var repositorioPersonaConsulta= Mockito.mock(PersonaRepositorioConsulta.class);
-        var repositorioUsuarioConsulta= Mockito.mock(UsuarioRepositorioComando.class);
 
-        var servicio = new ServicioGuardarUsuario(repositorioPersonaComando,repositorioPersonaConsulta,repositorioUsuarioConsulta);
+
+        var servicio = new ServicioGuardarPersona(repositorioPersonaComando,repositorioPersonaConsulta);
 
         Mockito.when(repositorioPersonaComando.guardar(Mockito.any(Persona.class))).thenReturn(1l);
 
