@@ -51,7 +51,7 @@ public class ValidarTexto
         }
     }
 
-    public static void validarClaveEsValida(String valor, String mensaje)
+    public static void validarCorreoEsValido(String valor, String mensaje)
     {
         if(!cadenaCorreo(valor))
         {
@@ -59,7 +59,7 @@ public class ValidarTexto
         }
     }
 
-    public static void validarCorreoEsValido(String valor, String mensaje)
+    public static void validarClaveEsValida(String valor, String mensaje)
     {
         if(!cadenaClave(valor))
         {
