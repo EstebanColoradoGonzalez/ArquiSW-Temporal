@@ -35,17 +35,9 @@ public class ValidarTexto
         }
     }
 
-    public static void validarPatronLetrasYEspaciosEsValido(String valor, String mensaje)
-    {
-        if(!cadenaLetrasYEspacios(valor))
-        {
-            throw new PatronExcepcion(mensaje);
-        }
-    }
-
     public static void validarPatronAlfanumericoEsValido(String valor, String mensaje)
     {
-        if(cadenaNoEsAlfanumerica(valor))
+        if(!cadenaEsAlfanumerica(valor))
         {
             throw new PatronExcepcion(mensaje);
         }
@@ -112,9 +104,9 @@ public class ValidarTexto
         return cadenaAceptaElPatron(string, LETRAS_Y_ESPACIOS);
     }
 
-    public static boolean cadenaNoEsAlfanumerica(String string)
+    public static boolean cadenaEsAlfanumerica(String string)
     {
-        return !cadenaAceptaElPatron(string, ALFANUMERICO);
+        return cadenaAceptaElPatron(string, ALFANUMERICO);
     }
 
     public static boolean cadenaCorreo(String string)

@@ -9,6 +9,8 @@ import co.edu.uco.arquisw.infraestructura.usuario.adaptador.repositorio.jpa.Usua
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.Objects;
+
 @Repository
 public class PersonaRepositorioConsultaImplementacion implements PersonaRepositorioConsulta
 {
@@ -48,6 +50,9 @@ public class PersonaRepositorioConsultaImplementacion implements PersonaReposito
     @Override
     public boolean existeConCorreo(String correo)
     {
-        return !ValidarObjeto.esNulo(this.usuarioDAO.findByCorreo(correo));
+        var usuario = this.usuarioDAO.findByCorreo(correo);
+        var persona = this.personaDAO.findByCorreo(correo);
+
+        return !ValidarObjeto.esNulo(this.usuarioDAO.findByCorreo(correo)) && !Objects.equals(persona.getId(), usuario.getId());
     }
 }
