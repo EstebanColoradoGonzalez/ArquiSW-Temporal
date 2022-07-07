@@ -23,7 +23,7 @@ public class Rol
     {
         ValidarTexto.validarObligatorio(nombre, Mensajes.NOMBRE_ROL_VACIO);
         ValidarTexto.validarSiLongitudEsValida(nombre, 1, 50, Mensajes.LONGITUD_NOMBRE_ROL_INVALIDA);
-        ValidarTexto.validarPatronLetrasYEspaciosEsValido(nombre, Mensajes.PATRON_NOMBRE_ROL_INVALIDO);
+        ValidarTexto.validarPatronAlfanumericoEsValido(nombre, Mensajes.PATRON_NOMBRE_ROL_INVALIDO);
 
         this.nombre = nombre;
     }

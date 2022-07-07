@@ -12,12 +12,12 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "rolusuario")
+@Table(name = "rolpersona")
 public class RolPersonaEntidad
 {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator="rolusuario_code_seq")
-    @SequenceGenerator(name="rolusuario_code_seq", sequenceName="rolusuario_code_seq", allocationSize=1)
+    @GeneratedValue(strategy = GenerationType.AUTO, generator="rolpersona_code_seq")
+    @SequenceGenerator(name="rolpersona_code_seq", sequenceName="rolpersona_code_seq", allocationSize=1)
     private Long id;
     @ManyToOne
     @JoinColumn(name = "rol")
