@@ -1,1 +1,0 @@
-package co.edu.uco.arquisw.dominio.usuario.modelo;
