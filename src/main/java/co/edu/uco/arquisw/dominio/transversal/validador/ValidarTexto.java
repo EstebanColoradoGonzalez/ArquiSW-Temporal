@@ -10,6 +10,7 @@ public class ValidarTexto
     private static final String ALFANUMERICO = "^[a-zA-ZáéíóúÁÉÍÓÚñÑ .-_+*/#$!=,;?@0123456789]*$";
     private static final String CORREO = "(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])";
     private static final String NIT = "^([0-9]{5,15}-[0-9]{1})?$";
+    private static final String NUMERO_TELEFONO = "^(\\(\\+?\\d{2,3}\\)[\\*|\\s|\\-|\\.]?(([\\d][\\*|\\s|\\-|\\.]?){6})(([\\d][\\s|\\-|\\.]?){2})?|(\\+?[\\d][\\s|\\-|\\.]?){8}(([\\d][\\s|\\-|\\.]?){2}(([\\d][\\s|\\-|\\.]?){2})?)?)$";
     private static final String CLAVE = "^(?=.*[a-z])(?=.*[A-Z])(?=.*?[0-9]).{8,}$";
     private static final String URL = "^(ftp|http|https):\\/\\/[^ \"]+$";
     private static final String URL_ID = "^((\\d{8})|(\\d{10})|(\\d{11})|(\\d{6}-\\d{5}))?$";
@@ -54,6 +55,22 @@ public class ValidarTexto
     public static void validarClaveEsValida(String valor, String mensaje)
     {
         if(!cadenaClave(valor))
+        {
+            throw new PatronExcepcion(mensaje);
+        }
+    }
+
+    public static void validarPatronNITEsValido(String valor, String mensaje)
+    {
+        if(!cadenaNIT(valor))
+        {
+            throw new PatronExcepcion(mensaje);
+        }
+    }
+
+    public static void validarPatronNumeroEsValido(String valor, String mensaje)
+    {
+        if(!cadenaNumeroTelefono(valor))
         {
             throw new PatronExcepcion(mensaje);
         }
@@ -122,6 +139,12 @@ public class ValidarTexto
     public static boolean cadenaNIT(String string)
     {
         return cadenaAceptaElPatron(string, NIT);
+    }
+
+
+    public static boolean cadenaNumeroTelefono(String string)
+    {
+        return cadenaAceptaElPatron(string, NUMERO_TELEFONO);
     }
 
     public static boolean cadenaURL(String string)

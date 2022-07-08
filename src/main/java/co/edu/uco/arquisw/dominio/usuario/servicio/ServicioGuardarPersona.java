@@ -20,11 +20,16 @@ public class ServicioGuardarPersona
 
     public Long ejecutar(Persona persona)
     {
-         if(!ValidarObjeto.esNulo(this.personaRepositorioConsulta.consultarPorCorreo(persona.getCorreo())))
-         {
-             throw new ValorInvalidoExcepcion(Mensajes.EXISTE_USUARIO_CON_CORREO);
-         }
+        validarSiExistePersonaConCorreo(persona);
 
-         return this.personaRepositorioComando.guardar(persona);
+        return this.personaRepositorioComando.guardar(persona);
+    }
+
+    private void validarSiExistePersonaConCorreo(Persona persona)
+    {
+        if(!ValidarObjeto.esNulo(this.personaRepositorioConsulta.consultarPorCorreo(persona.getCorreo())))
+        {
+            throw new ValorInvalidoExcepcion(Mensajes.EXISTE_USUARIO_CON_CORREO);
+        }
     }
 }
