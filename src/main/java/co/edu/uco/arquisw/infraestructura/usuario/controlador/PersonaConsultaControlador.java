@@ -12,11 +12,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/usuarios")
 @Tag(name = "Consulta del Usuario Controlador")
-public class UsuarioConsultaControlador
+public class PersonaConsultaControlador
 {
     private final ConsultarPersonaPorIdManejador consultarPersonaPorIdManejador;
 
-    public UsuarioConsultaControlador(ConsultarPersonaPorIdManejador consultarPersonaPorIdManejador)
+    public PersonaConsultaControlador(ConsultarPersonaPorIdManejador consultarPersonaPorIdManejador)
     {
         this.consultarPersonaPorIdManejador = consultarPersonaPorIdManejador;
     }
