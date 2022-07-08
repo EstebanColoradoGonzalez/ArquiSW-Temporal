@@ -1,9 +1,6 @@
 package co.edu.uco.arquisw.dominio.usuario.testdatabuilder;
 
 import co.edu.uco.arquisw.dominio.usuario.modelo.Persona;
-import co.edu.uco.arquisw.dominio.usuario.modelo.Rol;
-
-import java.util.ArrayList;
 import java.util.List;
 
 public class PersonaTestDataBuilder

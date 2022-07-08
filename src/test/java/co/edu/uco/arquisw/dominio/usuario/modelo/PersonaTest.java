@@ -3,6 +3,7 @@ package co.edu.uco.arquisw.dominio.usuario.modelo;
 import co.edu.uco.arquisw.dominio.transversal.excepciones.LongitudExcepcion;
 import co.edu.uco.arquisw.dominio.transversal.excepciones.PatronExcepcion;
 import co.edu.uco.arquisw.dominio.transversal.excepciones.ValorObligatorioExcepcion;
+import co.edu.uco.arquisw.dominio.transversal.utilitario.Mensajes;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -37,58 +38,58 @@ public class PersonaTest {
         List<Rol> roles = new ArrayList<>();
         Rol rol =  Rol.crear("administrador");
         roles.add(rol);
-        Assertions.assertEquals("El nombre no puede estar vacio",Assertions.assertThrows(ValorObligatorioExcepcion.class,() ->
+        Assertions.assertEquals(Mensajes.NOMBRE_PERSONA_NO_PUEDE_ESTAR_VACIO,Assertions.assertThrows(ValorObligatorioExcepcion.class,() ->
                 Persona.crear("","valencia","jjuandiego23@gmail.com","ASDasd1234",roles)).getMessage());
 
-        Assertions.assertEquals("Los apellidos de una persona no pueden ser vacios",Assertions.assertThrows(ValorObligatorioExcepcion.class,() ->
+        Assertions.assertEquals(Mensajes.APELLIDOS_PERSONA_NO_PUEDE_ESTAR_VACIO,Assertions.assertThrows(ValorObligatorioExcepcion.class,() ->
                 Persona.crear("juan","","jjuandiego23@gmail.com","ASDasd1234",roles)).getMessage());
 
-        Assertions.assertEquals("El correo no puede estar vacio",Assertions.assertThrows(ValorObligatorioExcepcion.class,() ->
+        Assertions.assertEquals(Mensajes.CORREO_PERSONA_NO_PUEDE_ESTAR_VACIO,Assertions.assertThrows(ValorObligatorioExcepcion.class,() ->
                 Persona.crear("juan","valencia","","ASDasd1234",roles)).getMessage());
 
-        Assertions.assertEquals("La clave no puede estar vacia",Assertions.assertThrows(ValorObligatorioExcepcion.class,() ->
+        Assertions.assertEquals(Mensajes.CLAVE_PERSONA_NO_PUEDE_ESTAR_VACIO,Assertions.assertThrows(ValorObligatorioExcepcion.class,() ->
                 Persona.crear("juan","valencia","jjuandiego23@gmail.com","",roles)).getMessage());
 
     }
 
     @Test
-    void validarLongitudesCorrectas()
+    void validarLongitudesIncorrecto()
     {
         List<Rol> roles = new ArrayList<>();
         Rol rol =  Rol.crear("administrador");
         roles.add(rol);
-        Assertions.assertEquals("La longitud del nombre debe estar entre 1 y 50 caracteres",Assertions.assertThrows(LongitudExcepcion.class,() ->
+        Assertions.assertEquals(Mensajes.LONGITUD_NOMBRE_PERSONA_INVALIDA,Assertions.assertThrows(LongitudExcepcion.class,() ->
                 Persona.crear("" +
                         "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaAAAaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","valencia","jjuandiego23@gmail.com","ASDasd1234",roles)).getMessage());
 
-        Assertions.assertEquals("La longitud de los apellidos debe estar entre 1 y 50 caracteres",Assertions.assertThrows(LongitudExcepcion.class,() ->
+        Assertions.assertEquals(Mensajes.LONGITUD_APELLIDOS_PERSONA_INVALIDA,Assertions.assertThrows(LongitudExcepcion.class,() ->
                 Persona.crear("juan","aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaAAAaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa1a",
                         "jjuandiego23@gmail.com","ASDasd1234",roles)).getMessage());
 
-        Assertions.assertEquals("La longitud del correo debe estar entre 10 y 100 caracteres",Assertions.assertThrows(LongitudExcepcion.class,() ->
+        Assertions.assertEquals(Mensajes.LONGITUD_CORREO_PERSONA_INVALIDA,Assertions.assertThrows(LongitudExcepcion.class,() ->
                 Persona.crear("juan","valencia","jju@com","ASDasd1234",roles)).getMessage());
 
-        Assertions.assertEquals("La longitud de la clave debe estar entre 8 y 100 caracteres",Assertions.assertThrows(LongitudExcepcion.class,() ->
+        Assertions.assertEquals(Mensajes.LONGITUD_CLAVE_PERSONA_INVALIDA,Assertions.assertThrows(LongitudExcepcion.class,() ->
                 Persona.crear("juan","valencia","jjuandiego23@gmail.com","Asd1",roles)).getMessage());
     }
 
     @Test
-    void validarPatronesCorrectos()
+    void validarPatronesIncorrecto()
     {
         List<Rol> roles = new ArrayList<>();
         Rol rol =  Rol.crear("administrador");
         roles.add(rol);
-        Assertions.assertEquals("El nombre solo puede contener letras y numeros",Assertions.assertThrows(PatronExcepcion.class,() ->
+        Assertions.assertEquals(Mensajes.PATRON_NOMBRE_PERSONA_NO_ES_VALIDO,Assertions.assertThrows(PatronExcepcion.class,() ->
                 Persona.crear("juan1234-","valencia","jjuandiego23@gmail.com","ASDasd1234",roles)).getMessage());
 
-        Assertions.assertEquals("Los apellidos solo puede contener letras y numeros",Assertions.assertThrows(PatronExcepcion.class,() ->
+        Assertions.assertEquals(Mensajes.PATRON_APELLIDOS_PERSONA_NO_ES_VALIDO,Assertions.assertThrows(PatronExcepcion.class,() ->
                 Persona.crear("juan","valencia123-",
                         "jjuandiego23@gmail.com","ASDasd1234",roles)).getMessage());
 
-        Assertions.assertEquals("El correo debe cumplir el patron de @example.com",Assertions.assertThrows(PatronExcepcion.class,() ->
+        Assertions.assertEquals(Mensajes.PATRON_CORREO_PERSONA_NO_ES_VALIDO,Assertions.assertThrows(PatronExcepcion.class,() ->
                 Persona.crear("juan","valencia","jjuandiego@asffgh","ASDasd1234",roles)).getMessage());
 
-        Assertions.assertEquals("La clave debe tener minimo una minuscula, una mayuscula y un numero",Assertions.assertThrows(PatronExcepcion.class,() ->
+        Assertions.assertEquals(Mensajes.PATRON_CLAVE_PERSONA_NO_ES_VALIDO,Assertions.assertThrows(PatronExcepcion.class,() ->
                 Persona.crear("juan","valencia","jjuandiego23@gmail.com","aaaaaaaaaaaa",roles)).getMessage());
     }
 }

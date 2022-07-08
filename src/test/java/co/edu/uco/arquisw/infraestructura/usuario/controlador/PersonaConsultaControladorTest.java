@@ -26,7 +26,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @ActiveProfiles("test")
 @ImportResource
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
-public class PersonaConsultaControlador {
+ class PersonaConsultaControladorTest {
     @Autowired
     private MockMvc mocMvc;
 
@@ -44,15 +44,14 @@ public class PersonaConsultaControlador {
     }
 
     @Test
-
     void obtenerPorIdFalla() throws Exception
     {
         var id = 3;
 
-        mocMvc.perform(MockMvcRequestBuilders.get("/usuarios/" + id)
+        mocMvc.perform(MockMvcRequestBuilders.get("/usuarios/{id}",id)
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().is4xxClientError())
                 .andExpect(jsonPath("$.nombreExcepcion", is("ValorInvalidoExcepcion")))
-                .andExpect(jsonPath("$.mensaje", is("No existe un usuario con el id " + id)));
+                .andExpect(jsonPath("$.mensaje", is("No existe un usuario con el id " + id)));;
     }
 }

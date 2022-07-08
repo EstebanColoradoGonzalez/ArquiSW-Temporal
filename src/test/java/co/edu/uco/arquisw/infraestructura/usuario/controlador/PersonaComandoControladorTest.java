@@ -1,6 +1,5 @@
 package co.edu.uco.arquisw.infraestructura.usuario.controlador;
 
-import co.edu.uco.arquisw.aplicacion.usuario.comando.PersonaComando;
 import co.edu.uco.arquisw.ApplicationMock;
 import co.edu.uco.arquisw.infraestructura.usuario.testdatabuilder.PersonaDtoTestDataBuilder;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -9,6 +8,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.ImportResource;
 import org.springframework.http.MediaType;
@@ -41,26 +41,19 @@ public class PersonaComandoControladorTest {
     @Test
     void guardarPersona() throws Exception {
         var persona = new PersonaDtoTestDataBuilder().build();
-        crear(persona);
 
-    }
-    private void crear(PersonaComando personaComando) throws Exception
-    {
-        var resultado = mocMvc.perform(MockMvcRequestBuilders.post("/usuarios")
+         mocMvc.perform(MockMvcRequestBuilders.post("/usuarios")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .content(objectMapper.writeValueAsString(personaComando)))
+                        .content(objectMapper.writeValueAsString(persona)))
                 .andExpect(status().is2xxSuccessful())
                 .andReturn();
 
-        var jsonResult = resultado.getResponse().getContentAsString();
-
         Assertions.assertNotNull(1);
-    }
 
+    }
     @Test
     void guardarUsuarioFallida() throws Exception
     {
-
         mocMvc.perform(MockMvcRequestBuilders.post("/usuarios")
                         .contentType(MediaType.APPLICATION_JSON)
                         .accept(MediaType.APPLICATION_JSON))

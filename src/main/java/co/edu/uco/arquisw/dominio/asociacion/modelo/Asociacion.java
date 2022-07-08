@@ -34,18 +34,17 @@ public class Asociacion
 
     public void setNit(String nit)
     {
-        ValidarTexto.validarObligatorio(nombre, Mensajes.NIT_ASOCIACION_NO_PUEDE_ESTAR_VACIO);
-        ValidarTexto.validarSiLongitudEsValida(nombre, 1, 11, Mensajes.LONGITUD_NIT_ASOCIACION_INVALIDO);
-        ValidarTexto.validarPatronNITEsValido(nombre, Mensajes.PATRON_NIT_ASOCIACION_NO_ES_VALIDO);
+        ValidarTexto.validarObligatorio(nit, Mensajes.NIT_ASOCIACION_NO_PUEDE_ESTAR_VACIO);
+        ValidarTexto.validarSiLongitudEsValida(nit, 1, 11, Mensajes.LONGITUD_NIT_ASOCIACION_INVALIDO);
+        ValidarTexto.validarPatronNITEsValido(nit, Mensajes.PATRON_NIT_ASOCIACION_NO_ES_VALIDO);
 
         this.nit = nit;
     }
 
     public void setNumeroContacto(String numeroContacto)
     {
-        ValidarTexto.validarObligatorio(nombre, Mensajes.NUMERO_ASOCIACION_NO_PUEDE_ESTAR_VACIO);
-        ValidarTexto.validarSiLongitudEsValida(nombre, 1, 15, Mensajes.LONGITUD_NUMERO_ASOCIACION_INVALIDO);
-        ValidarTexto.validarPatronNumeroEsValido(nombre, Mensajes.PATRON_NUMERO_ASOCIACION_NO_ES_VALIDO);
+        ValidarTexto.validarObligatorio(numeroContacto, Mensajes.NUMERO_ASOCIACION_NO_PUEDE_ESTAR_VACIO);
+        ValidarTexto.validarPatronNumeroEsValido(numeroContacto, Mensajes.PATRON_NUMERO_ASOCIACION_NO_ES_VALIDO);
 
         this.numeroContacto = numeroContacto;
     }
