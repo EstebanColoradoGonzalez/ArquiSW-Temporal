@@ -5,11 +5,11 @@ import co.edu.uco.arquisw.dominio.asociacion.puerto.consulta.AsociacionRepositor
 import co.edu.uco.arquisw.dominio.transversal.utilitario.Mensajes;
 import co.edu.uco.arquisw.dominio.transversal.validador.ValidarObjeto;
 
-public class ServicioConsultarPorID
+public class ServicioConsultarAsociacionPorID
 {
     private final AsociacionRepositorioConsulta asociacionRepositorioConsulta;
 
-    public ServicioConsultarPorID(AsociacionRepositorioConsulta asociacionRepositorioConsulta)
+    public ServicioConsultarAsociacionPorID(AsociacionRepositorioConsulta asociacionRepositorioConsulta)
     {
         this.asociacionRepositorioConsulta = asociacionRepositorioConsulta;
     }
