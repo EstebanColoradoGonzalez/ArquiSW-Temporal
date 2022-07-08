@@ -12,13 +12,13 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/usuarios")
 @Tag(name = "Comando del Usuario Controlador")
-public class UsuarioComandoControlador
+public class PersonaComandoControlador
 {
     private final GuardarPersonaManejador guardarPersonaManejador;
     private final ActualizarPersonaManejador actualizarPersonaManejador;
     private final EliminarPersonaManejador eliminarPersonaManejador;
 
-    public UsuarioComandoControlador(GuardarPersonaManejador guardarPersonaManejador, ActualizarPersonaManejador actualizarPersonaManejador, EliminarPersonaManejador eliminarPersonaManejador)
+    public PersonaComandoControlador(GuardarPersonaManejador guardarPersonaManejador, ActualizarPersonaManejador actualizarPersonaManejador, EliminarPersonaManejador eliminarPersonaManejador)
     {
         this.guardarPersonaManejador = guardarPersonaManejador;
         this.actualizarPersonaManejador = actualizarPersonaManejador;
