@@ -20,6 +20,7 @@ public class Mensajes
     public static final String OCURRIO_UN_ERROR_FAVOR_CONTACTAR_AL_ADMINISTRADOR = "Ocurrió un error favor contactar al administrador.";
     public static final String EXISTE_USUARIO_CON_CORREO = "Ya existe un usuario con ese correo";
     public static final String NO_EXISTE_USUARIO_CON_EL_ID = "No existe un usuario con el id ";
+    public static final String NO_EXISTE_USUARIO_CON_EL_CORREO = "No existe un usuario con el correo ";
     public static final String NOMBRE_ASOCIACION_NO_PUEDE_ESTAR_VACIO = "El nombre de una compañia no puede estar vacio.";
     public static final String LONGITUD_NOMBRE_ASOCIACION_INVALIDO = "La longitud del nombre de una compañia debe ser entre 1 y 50 caracteres.";
     public static final String PATRON_NOMBRE_ASOCIACION_NO_ES_VALIDO = "El nombre de una compañia debe ser alfanumerico";
@@ -27,10 +28,10 @@ public class Mensajes
     public static final String LONGITUD_NIT_ASOCIACION_INVALIDO = "La longitud del nit de una compañia debe ser de 11 caracteres";
     public static final String PATRON_NIT_ASOCIACION_NO_ES_VALIDO = "El NIT de una compañia debe tener la estructura 111111111-1";
     public static final String NUMERO_ASOCIACION_NO_PUEDE_ESTAR_VACIO = "El numero de contacto de una compañia no puede estar vacio";
-    public static final String LONGITUD_NUMERO_ASOCIACION_INVALIDO = "La longitud de un numero de contacto de una compañia debe estar entre 1 y 15 caracteres";
     public static final String PATRON_NUMERO_ASOCIACION_NO_ES_VALIDO = "El patrón del numero de contacto de una compañia es invalido";
     public static final String EXISTE_ASOCIACION_CON_NIT = "Ya existe una asociación con el NIT ";
     public static final String NO_EXISTE_ASOCIACION_CON_EL_ID = "Ya existe una asociación con el ID ";
+    public static final String AUTENTICACION_NO_SATISFACTIORIA = "No existe una entidad con el correo o clave ingresados";
 
     private Mensajes()
     {

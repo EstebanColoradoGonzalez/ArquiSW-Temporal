@@ -2,6 +2,7 @@ package co.edu.uco.arquisw.infraestructura.usuario.adaptador.repositorio.impleme
 
 import co.edu.uco.arquisw.dominio.transversal.validador.ValidarObjeto;
 import co.edu.uco.arquisw.dominio.usuario.dto.PersonaDTO;
+import co.edu.uco.arquisw.dominio.usuario.dto.UsuarioDTO;
 import co.edu.uco.arquisw.dominio.usuario.puerto.consulta.PersonaRepositorioConsulta;
 import co.edu.uco.arquisw.infraestructura.usuario.adaptador.mapeador.PersonaMapeador;
 import co.edu.uco.arquisw.infraestructura.usuario.adaptador.repositorio.jpa.PersonaDAO;
@@ -45,6 +46,21 @@ public class PersonaRepositorioConsultaImplementacion implements PersonaReposito
         }
 
         return this.personaMapeador.construirDTO(entidad);
+    }
+
+    @Override
+    public UsuarioDTO consultarConCorreoYClave(String correo)
+    {
+        var entidad = this.usuarioDAO.findByCorreo(correo);
+
+        if(ValidarObjeto.esNulo(entidad))
+        {
+            return null;
+        }
+
+        var persona = this.personaDAO.findByCorreo(correo);
+
+        return this.personaMapeador.construirUsuario(entidad, persona.getRoles());
     }
 
     @Override

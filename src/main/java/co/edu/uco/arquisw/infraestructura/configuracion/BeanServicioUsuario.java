@@ -2,10 +2,7 @@ package co.edu.uco.arquisw.infraestructura.configuracion;
 
 import co.edu.uco.arquisw.dominio.usuario.puerto.comando.PersonaRepositorioComando;
 import co.edu.uco.arquisw.dominio.usuario.puerto.consulta.PersonaRepositorioConsulta;
-import co.edu.uco.arquisw.dominio.usuario.servicio.ServicioActualizarPersona;
-import co.edu.uco.arquisw.dominio.usuario.servicio.ServicioConsultarPersonaPorId;
-import co.edu.uco.arquisw.dominio.usuario.servicio.ServicioEliminarPersona;
-import co.edu.uco.arquisw.dominio.usuario.servicio.ServicioGuardarPersona;
+import co.edu.uco.arquisw.dominio.usuario.servicio.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -34,5 +31,11 @@ public class BeanServicioUsuario
     public ServicioConsultarPersonaPorId servicioConsultarUsuarioPorId(PersonaRepositorioConsulta personaRepositorioConsulta)
     {
         return new ServicioConsultarPersonaPorId(personaRepositorioConsulta);
+    }
+
+    @Bean
+    public ServicioConsultarUsuarioPorCorreo servicioConsultarUsuarioPorCorreo(PersonaRepositorioConsulta personaRepositorioConsulta)
+    {
+        return new ServicioConsultarUsuarioPorCorreo(personaRepositorioConsulta);
     }
 }
