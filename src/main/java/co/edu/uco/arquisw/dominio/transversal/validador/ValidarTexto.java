@@ -44,6 +44,14 @@ public class ValidarTexto
         }
     }
 
+    public static void validarPatronTextoEsValido(String valor, String mensaje)
+    {
+        if(!cadenaLetrasYEspacios(valor))
+        {
+            throw new PatronExcepcion(mensaje);
+        }
+    }
+
     public static void validarCorreoEsValido(String valor, String mensaje)
     {
         if(!cadenaCorreo(valor))
@@ -71,6 +79,14 @@ public class ValidarTexto
     public static void validarPatronNumeroEsValido(String valor, String mensaje)
     {
         if(!cadenaNumeroTelefono(valor))
+        {
+            throw new PatronExcepcion(mensaje);
+        }
+    }
+
+    public static void validarPatronURLEsValido(String valor, String mensaje)
+    {
+        if(!cadenaURL(valor))
         {
             throw new PatronExcepcion(mensaje);
         }

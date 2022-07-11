@@ -11,7 +11,7 @@ public class AsociacionTestDataBuilder {
     public AsociacionTestDataBuilder()
     {
         this.nombre = "Uco";
-        this.nit = "12345678";
+        this.nit = "12345678-1";
         this.numeroContacto = "3125678170";
     }
 

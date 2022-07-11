@@ -23,10 +23,15 @@ public class AsociacionRepositorioConsultaImplementacion implements AsociacionRe
     @Override
     public AsociacionDTO consultarPorID(Long id)
     {
-        var usuario = this.personaDAO.findById(id).orElse(null);
         var entidad = this.asociacionDAO.findByUsuario(id);
 
-        assert usuario != null;
+        if(ValidarObjeto.esNulo(entidad) )
+        {
+            return null;
+        }
+
+        var usuario = this.personaDAO.findById(entidad.getUsuario()).orElse(null);
+
         return this.asociacionMapeador.construirDTO(entidad, usuario.getNombre());
     }
 

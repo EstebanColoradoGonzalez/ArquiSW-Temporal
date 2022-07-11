@@ -30,7 +30,7 @@ public class RolTest {
     }
 
     @Test
-    void validarLongitudesInorrectas()
+    void validarLongitudesIncorrectas()
     {
         String nombre = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
 
@@ -39,7 +39,7 @@ public class RolTest {
     }
 
     @Test
-    void validarPatronesInorrectas()
+    void validarPatronesIncorrectas()
     {
         String nombre = "admin-1234";
 
