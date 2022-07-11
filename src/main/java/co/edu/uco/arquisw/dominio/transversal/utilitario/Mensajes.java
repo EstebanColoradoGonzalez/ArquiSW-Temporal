@@ -30,7 +30,7 @@ public class Mensajes
     public static final String LONGITUD_NUMERO_ASOCIACION_INVALIDO = "La longitud de un numero de contacto de una compañia debe estar entre 1 y 15 caracteres";
     public static final String PATRON_NUMERO_ASOCIACION_NO_ES_VALIDO = "El patrón del numero de contacto de una compañia es invalido";
     public static final String EXISTE_ASOCIACION_CON_NIT = "Ya existe una asociación con el NIT ";
-    public static final String NO_EXISTE_ASOCIACION_CON_EL_ID = "Ya existe una asociación con el ID ";
+    public static final String NO_EXISTE_ASOCIACION_CON_EL_ID = "No existe un asociacion con el ID ";
 
     private Mensajes()
     {
