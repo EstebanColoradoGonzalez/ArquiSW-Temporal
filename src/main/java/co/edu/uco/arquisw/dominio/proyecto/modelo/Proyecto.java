@@ -35,8 +35,8 @@ public class Proyecto
 
     public void setDescripcion(String descripcion)
     {
-        ValidarTexto.validarObligatorio(nombre, Mensajes.DESCRIPCION_ESTADO_PROYECTO_NO_PUEDE_ESTAR_VACIO);
-        ValidarTexto.validarPatronAlfanumericoEsValido(nombre, Mensajes.PATRON_DESCRIPCION_PROYECTO_NO_ES_VALIDO);
+        ValidarTexto.validarObligatorio(descripcion, Mensajes.DESCRIPCION_ESTADO_PROYECTO_NO_PUEDE_ESTAR_VACIO);
+        ValidarTexto.validarPatronAlfanumericoEsValido(descripcion, Mensajes.PATRON_DESCRIPCION_PROYECTO_NO_ES_VALIDO);
 
         this.descripcion = descripcion;
     }
