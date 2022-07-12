@@ -5,8 +5,8 @@ import co.edu.uco.arquisw.dominio.proyecto.puerto.consulta.NecesidadRepositorioC
 import co.edu.uco.arquisw.dominio.transversal.utilitario.Mensajes;
 import co.edu.uco.arquisw.dominio.transversal.validador.ValidarObjeto;
 
-public class ServicioConsultarProyectoPorId {
-
+public class ServicioConsultarProyectoPorId
+{
     private final NecesidadRepositorioConsulta necesidadRepositorioConsulta;
 
 

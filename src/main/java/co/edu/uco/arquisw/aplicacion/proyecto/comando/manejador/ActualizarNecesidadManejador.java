@@ -1,6 +1,5 @@
 package co.edu.uco.arquisw.aplicacion.proyecto.comando.manejador;
 
-import co.edu.uco.arquisw.aplicacion.asociacion.comando.AsociacionComando;
 import co.edu.uco.arquisw.aplicacion.proyecto.comando.NecesidadComando;
 import co.edu.uco.arquisw.aplicacion.proyecto.comando.fabrica.NecesidadFabrica;
 import co.edu.uco.arquisw.aplicacion.transversal.ComandoRespuesta;
@@ -23,6 +22,6 @@ public class ActualizarNecesidadManejador implements ManejadorComandoActualizaci
     @Override
     public ComandoRespuesta<Long> ejecutar(NecesidadComando comando, Long id)
     {
-        return new ComandoRespuesta<>(this.servicioActualizarNecesidad.ejecutar(this.necesidadFabrica.construir(comando), id));
+        return new ComandoRespuesta<>(this.servicioActualizarNecesidad.ejecutar(this.necesidadFabrica.construirActualizar(comando, id), id));
     }
 }
