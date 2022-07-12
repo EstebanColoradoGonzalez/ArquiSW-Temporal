@@ -31,7 +31,6 @@ public class PersonaTest {
         Assertions.assertEquals(rol,roles.get(0));
 
     }
-
     @Test
     void validarCamposFaltantes()
     {
@@ -51,28 +50,6 @@ public class PersonaTest {
                 Persona.crear("juan","valencia","jjuandiego23@gmail.com","",roles)).getMessage());
 
     }
-
-    @Test
-    void validarLongitudesIncorrecto()
-    {
-        List<Rol> roles = new ArrayList<>();
-        Rol rol =  Rol.crear("administrador");
-        roles.add(rol);
-        Assertions.assertEquals(Mensajes.LONGITUD_NOMBRE_PERSONA_INVALIDA,Assertions.assertThrows(LongitudExcepcion.class,() ->
-                Persona.crear("" +
-                        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaAAAaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","valencia","jjuandiego23@gmail.com","ASDasd1234",roles)).getMessage());
-
-        Assertions.assertEquals(Mensajes.LONGITUD_APELLIDOS_PERSONA_INVALIDA,Assertions.assertThrows(LongitudExcepcion.class,() ->
-                Persona.crear("juan","aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaAAAaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa1a",
-                        "jjuandiego23@gmail.com","ASDasd1234",roles)).getMessage());
-
-        Assertions.assertEquals(Mensajes.LONGITUD_CORREO_PERSONA_INVALIDA,Assertions.assertThrows(LongitudExcepcion.class,() ->
-                Persona.crear("juan","valencia","jju@com","ASDasd1234",roles)).getMessage());
-
-        Assertions.assertEquals(Mensajes.LONGITUD_CLAVE_PERSONA_INVALIDA,Assertions.assertThrows(LongitudExcepcion.class,() ->
-                Persona.crear("juan","valencia","jjuandiego23@gmail.com","Asd1",roles)).getMessage());
-    }
-
     @Test
     void validarPatronesIncorrecto()
     {

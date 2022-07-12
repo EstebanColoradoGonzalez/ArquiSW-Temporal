@@ -26,16 +26,6 @@ class TipoConsultoriaTest
         Assertions.assertEquals(Mensajes.NOMBRE_TIPO_CONSULTORIA_NO_PUEDE_ESTAR_VACIO,Assertions.assertThrows(ValorObligatorioExcepcion.class,() ->
                 TipoConsultoria.crear(nombre)).getMessage());
     }
-
-    @Test
-    void validarLongitudesIncorrectas()
-    {
-        String nombre = "Ingeniería de Requisitos Dos";
-
-        Assertions.assertEquals(Mensajes.LONGITUD_NOMBRE_TIPO_CONSULTORIA_INVALIDA,Assertions.assertThrows(LongitudExcepcion.class,() ->
-                TipoConsultoria.crear(nombre)).getMessage());
-    }
-
     @Test
     void validarPatronesIncorrectas()
     {

@@ -1,8 +1,15 @@
 package co.edu.uco.arquisw.dominio.proyecto.modelo;
 
+import co.edu.uco.arquisw.dominio.proyecto.testdatabuilder.EstadoNesecidadTestDataBuilder;
+import co.edu.uco.arquisw.dominio.proyecto.testdatabuilder.ProyectoTestDataBuilder;
+import co.edu.uco.arquisw.dominio.transversal.excepciones.ValorObligatorioExcepcion;
+import co.edu.uco.arquisw.dominio.transversal.utilitario.Mensajes;
+import co.edu.uco.arquisw.dominio.usuario.modelo.Persona;
+import co.edu.uco.arquisw.dominio.usuario.modelo.Rol;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.List;
 
 class NecesidadTest
@@ -29,5 +36,12 @@ class NecesidadTest
         Assertions.assertEquals(descripcion, necesidad.getProyecto().getDescripcion());
         Assertions.assertEquals(estado, necesidad.getProyecto().getEstado().getNombre());
         Assertions.assertEquals(tipo, necesidad.getProyecto().getTiposConsultoria().get(0).getNombre());
+    }
+    @Test
+    void validarCamposFaltantes()
+    {
+
+        Assertions.assertEquals(Mensajes.RUTA_ARCHIVO_NECESIDAD_NO_PUEDE_ESTAR_VACIO,Assertions.assertThrows(ValorObligatorioExcepcion.class,() ->
+                Necesidad.crear("",new EstadoNesecidadTestDataBuilder().build(),new ProyectoTestDataBuilder().build())).getMessage());
     }
 }

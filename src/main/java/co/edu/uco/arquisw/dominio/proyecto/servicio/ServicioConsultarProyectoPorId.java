@@ -18,12 +18,12 @@ public class ServicioConsultarProyectoPorId {
     {
         validarSiExisteProyectoConID(id);
 
-        return this.necesidadRepositorioConsulta.consultrarProyectoPorId(id);
+        return this.necesidadRepositorioConsulta.consultarProyectoPorId(id);
     }
 
     private void validarSiExisteProyectoConID(Long id)
     {
-        if(ValidarObjeto.esNulo(this.necesidadRepositorioConsulta.consultrarProyectoPorId(id)))
+        if(ValidarObjeto.esNulo(this.necesidadRepositorioConsulta.consultarProyectoPorId(id)))
         {
             throw new NullPointerException(Mensajes.NO_EXISTE_PROYECTO_CON_EL_ID + id);
         }
