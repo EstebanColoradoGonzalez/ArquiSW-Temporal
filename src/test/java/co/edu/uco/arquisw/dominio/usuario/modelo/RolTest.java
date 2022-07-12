@@ -30,15 +30,6 @@ public class RolTest {
     }
 
     @Test
-    void validarLongitudesIncorrectas()
-    {
-        String nombre = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
-
-        Assertions.assertEquals(Mensajes.LONGITUD_NOMBRE_ROL_INVALIDA,Assertions.assertThrows(LongitudExcepcion.class,() ->
-                Rol.crear(nombre)).getMessage());
-    }
-
-    @Test
     void validarPatronesIncorrectas()
     {
         String nombre = "admin-1234";

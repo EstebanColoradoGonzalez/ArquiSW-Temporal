@@ -25,7 +25,6 @@ public class AsociacionTest {
         Assertions.assertEquals(numeroContacto,asociacion.getNumeroContacto());
 
     }
-
     @Test
     void validarCamposFaltantes()
     {
@@ -40,18 +39,6 @@ public class AsociacionTest {
                 Asociacion.crear("Uco","12345678-1","")).getMessage());
 
     }
-
-    @Test
-    void validarLongitudesIncorrecto()
-    {
-        Assertions.assertEquals(Mensajes.LONGITUD_NOMBRE_ASOCIACION_INVALIDO,Assertions.assertThrows(LongitudExcepcion.class,() ->
-                Asociacion.crear("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaAAAaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","12345678","3125678170")).getMessage());
-
-        Assertions.assertEquals(Mensajes.LONGITUD_NIT_ASOCIACION_INVALIDO,Assertions.assertThrows(LongitudExcepcion.class,() ->
-                Asociacion.crear("Uco","123456111111-1","3125678170")).getMessage());
-
-    }
-
     @Test
     void validarPatronesIncorrecto()
     {

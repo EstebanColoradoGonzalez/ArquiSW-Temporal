@@ -31,7 +31,6 @@ public class Persona
     private void setNombre(String nombre)
     {
         ValidarTexto.validarObligatorio(nombre, Mensajes.NOMBRE_PERSONA_NO_PUEDE_ESTAR_VACIO);
-        ValidarTexto.validarSiLongitudEsValida(nombre, 1, 50, Mensajes.LONGITUD_NOMBRE_PERSONA_INVALIDA);
         ValidarTexto.validarPatronAlfanumericoEsValido(nombre, Mensajes.PATRON_NOMBRE_PERSONA_NO_ES_VALIDO);
 
         this.nombre = nombre;
@@ -40,7 +39,6 @@ public class Persona
     public void setApellidos(String apellidos)
     {
         ValidarTexto.validarObligatorio(apellidos, Mensajes.APELLIDOS_PERSONA_NO_PUEDE_ESTAR_VACIO);
-        ValidarTexto.validarSiLongitudEsValida(apellidos, 1, 50, Mensajes.LONGITUD_APELLIDOS_PERSONA_INVALIDA);
         ValidarTexto.validarPatronAlfanumericoEsValido(apellidos, Mensajes.PATRON_APELLIDOS_PERSONA_NO_ES_VALIDO);
 
         this.apellidos = apellidos;
@@ -49,7 +47,6 @@ public class Persona
     private void setCorreo(String correo)
     {
         ValidarTexto.validarObligatorio(correo, Mensajes.CORREO_PERSONA_NO_PUEDE_ESTAR_VACIO);
-        ValidarTexto.validarSiLongitudEsValida(correo, 10, 100, Mensajes.LONGITUD_CORREO_PERSONA_INVALIDA);
         ValidarTexto.validarCorreoEsValido(correo, Mensajes.PATRON_CORREO_PERSONA_NO_ES_VALIDO);
 
         this.correo = correo;
@@ -58,7 +55,6 @@ public class Persona
     public void setClave(String clave)
     {
         ValidarTexto.validarObligatorio(clave, Mensajes.CLAVE_PERSONA_NO_PUEDE_ESTAR_VACIO);
-        ValidarTexto.validarSiLongitudEsValida(clave, 8, 100, Mensajes.LONGITUD_CLAVE_PERSONA_INVALIDA);
         ValidarTexto.validarClaveEsValida(clave, Mensajes.PATRON_CLAVE_PERSONA_NO_ES_VALIDO);
 
         this.clave = clave;

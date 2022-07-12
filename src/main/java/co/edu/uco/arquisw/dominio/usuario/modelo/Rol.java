@@ -22,7 +22,6 @@ public class Rol
     private void setNombre(String nombre)
     {
         ValidarTexto.validarObligatorio(nombre, Mensajes.NOMBRE_ROL_VACIO);
-        ValidarTexto.validarSiLongitudEsValida(nombre, 1, 50, Mensajes.LONGITUD_NOMBRE_ROL_INVALIDA);
         ValidarTexto.validarPatronAlfanumericoEsValido(nombre, Mensajes.PATRON_NOMBRE_ROL_INVALIDO);
 
         this.nombre = nombre;

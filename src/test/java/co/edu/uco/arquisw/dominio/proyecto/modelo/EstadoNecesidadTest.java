@@ -28,15 +28,6 @@ class EstadoNecesidadTest
     }
 
     @Test
-    void validarLongitudesIncorrectas()
-    {
-        String nombre = "En Espera Dos";
-
-        Assertions.assertEquals(Mensajes.LONGITUD_NOMBRE_ESTADO_NECESIDAD_INVALIDA,Assertions.assertThrows(LongitudExcepcion.class,() ->
-                EstadoNecesidad.crear(nombre)).getMessage());
-    }
-
-    @Test
     void validarPatronesIncorrectas()
     {
         String nombre = "En Esper-";

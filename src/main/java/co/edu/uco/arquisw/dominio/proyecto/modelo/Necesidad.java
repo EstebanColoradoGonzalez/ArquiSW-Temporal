@@ -26,7 +26,6 @@ public class Necesidad
     public void setRutaArchivo(String rutaArchivo)
     {
         ValidarTexto.validarObligatorio(rutaArchivo, Mensajes.RUTA_ARCHIVO_NECESIDAD_NO_PUEDE_ESTAR_VACIO);
-        ValidarTexto.validarSiLongitudEsValida(rutaArchivo, 1, 500, Mensajes.LONGITUD_RUTA_ARCHIVO_NECESIDAD_INVALIDA);
         ValidarTexto.validarPatronURLEsValido(rutaArchivo, Mensajes.PATRON_RUTA_ARCHIVO_NECESIDAD_NO_ES_VALIDO);
 
         this.rutaArchivo = rutaArchivo;
