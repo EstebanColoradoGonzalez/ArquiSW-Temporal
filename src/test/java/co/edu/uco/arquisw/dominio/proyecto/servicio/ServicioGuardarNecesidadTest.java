@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
-public class ServicioGuardarNesecidadTest {
+public class ServicioGuardarNecesidadTest {
 
     @Test
     void guardarNesecidadExitoso()
@@ -23,7 +23,7 @@ public class ServicioGuardarNesecidadTest {
         var asociacionRepositorioConsulta =Mockito.mock(AsociacionRepositorioConsulta.class);
         var asociacionRepositorioComando= Mockito.mock(AsociacionRepositorioComando.class);
 
-        var servicio = new ServicioGuardarNesecidad(necesidadRepositorioComando,asociacionRepositorioConsulta);
+        var servicio = new ServicioGuardarNecesidad(necesidadRepositorioComando,asociacionRepositorioConsulta);
 
 
         Mockito.when(asociacionRepositorioComando.guardar(Mockito.any(Asociacion.class),Mockito.anyLong())).thenReturn(1L);
