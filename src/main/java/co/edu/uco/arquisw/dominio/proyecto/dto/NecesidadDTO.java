@@ -11,6 +11,7 @@ import lombok.Setter;
 @AllArgsConstructor
 public class NecesidadDTO
 {
+    private Long id;
     private String rutaArchivo;
     private EstadoNecesidadDTO estado;
     private ProyectoDTO proyecto;

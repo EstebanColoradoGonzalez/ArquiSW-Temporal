@@ -6,5 +6,4 @@ public interface NecesidadRepositorioComando
 {
     Long guardar(Necesidad necesidad, Long asociacionID);
     Long actualizar(Necesidad necesidad, Long asociacionID);
-    void eliminar(Long asociacionID);
 }
