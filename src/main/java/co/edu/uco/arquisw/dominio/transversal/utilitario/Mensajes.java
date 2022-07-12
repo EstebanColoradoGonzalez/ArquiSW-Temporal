@@ -30,6 +30,8 @@ public class Mensajes
     public static final String PATRON_NUMERO_ASOCIACION_NO_ES_VALIDO = "El patrón del numero de contacto de una compañia es invalido";
     public static final String EXISTE_ASOCIACION_CON_NIT = "Ya existe una asociación con el NIT ";
     public static final String NO_EXISTE_ASOCIACION_CON_EL_ID = "No existe un asociacion con el ID ";
+    public static final String NO_EXISTE_PROYECTO_CON_EL_ID = "No existe un proyecto con el ID ";
+    public static final String NO_EXISTE_NECESIDAD_CON_EL_ID = "No existe un necesidad con el ID ";
     public static final String NOMBRE_ESTADO_NECESIDAD_NO_PUEDE_ESTAR_VACIO = "El nombre del estado de la necesidad no puede estar vacio";
     public static final String LONGITUD_NOMBRE_ESTADO_NECESIDAD_INVALIDA = "La longitud del nombre del estado de la necesidad debe ser de 8 o 9 caracteres";
     public static final String PATRON_NOMBRE_ESTADO_NECESIDAD_NO_ES_VALIDO = "El nombre del estado de la necesidad solo puede contener letras y espacios";
