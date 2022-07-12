@@ -28,7 +28,6 @@ public class Proyecto
     public void setNombre(String nombre)
     {
         ValidarTexto.validarObligatorio(nombre, Mensajes.NOMBRE_PROYECTO_NO_PUEDE_ESTAR_VACIO);
-        ValidarTexto.validarSiLongitudEsValida(nombre, 1, 100, Mensajes.LONGITUD_NOMBRE_PROYECTO_INVALIDA);
         ValidarTexto.validarPatronAlfanumericoEsValido(nombre, Mensajes.PATRON_NOMBRE_PROYECTO_NO_ES_VALIDO);
 
         this.nombre = nombre;
@@ -36,9 +35,8 @@ public class Proyecto
 
     public void setDescripcion(String descripcion)
     {
-        ValidarTexto.validarObligatorio(nombre, Mensajes.DESCRIPCION_ESTADO_PROYECTO_NO_PUEDE_ESTAR_VACIO);
-        ValidarTexto.validarSiLongitudEsValida(nombre, 1, 500, Mensajes.LONGITUD_DESCRIPCION_PROYECTO_INVALIDA);
-        ValidarTexto.validarPatronAlfanumericoEsValido(nombre, Mensajes.PATRON_DESCRIPCION_PROYECTO_NO_ES_VALIDO);
+        ValidarTexto.validarObligatorio(descripcion, Mensajes.DESCRIPCION_ESTADO_PROYECTO_NO_PUEDE_ESTAR_VACIO);
+        ValidarTexto.validarPatronAlfanumericoEsValido(descripcion, Mensajes.PATRON_DESCRIPCION_PROYECTO_NO_ES_VALIDO);
 
         this.descripcion = descripcion;
     }

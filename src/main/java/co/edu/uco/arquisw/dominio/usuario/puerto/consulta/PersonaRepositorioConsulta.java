@@ -9,4 +9,6 @@ public interface PersonaRepositorioConsulta
     PersonaDTO consultarPorCorreo(String correo);
     UsuarioDTO consultarConCorreoYClave(String correo);
     boolean existeConCorreo(String correo);
+    PersonaDTO consultarPostulados(Long proyectoID);
+    PersonaDTO consultarSeleccionados(Long proyectoID);
 }

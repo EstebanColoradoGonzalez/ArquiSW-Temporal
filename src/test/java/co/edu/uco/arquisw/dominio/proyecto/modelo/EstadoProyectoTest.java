@@ -26,16 +26,6 @@ class EstadoProyectoTest
         Assertions.assertEquals(Mensajes.NOMBRE_ESTADO_PROYECTO_NO_PUEDE_ESTAR_VACIO,Assertions.assertThrows(ValorObligatorioExcepcion.class,() ->
                 EstadoProyecto.crear(nombre)).getMessage());
     }
-
-    @Test
-    void validarLongitudesIncorrectas()
-    {
-        String nombre = "En Desarrollo Dos";
-
-        Assertions.assertEquals(Mensajes.LONGITUD_NOMBRE_ESTADO_PROYECTO_INVALIDA,Assertions.assertThrows(LongitudExcepcion.class,() ->
-                EstadoProyecto.crear(nombre)).getMessage());
-    }
-
     @Test
     void validarPatronesIncorrectas()
     {

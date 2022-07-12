@@ -26,7 +26,6 @@ public class Asociacion
     public void setNombre(String nombre)
     {
         ValidarTexto.validarObligatorio(nombre, Mensajes.NOMBRE_ASOCIACION_NO_PUEDE_ESTAR_VACIO);
-        ValidarTexto.validarSiLongitudEsValida(nombre, 1, 50, Mensajes.LONGITUD_NOMBRE_ASOCIACION_INVALIDO);
         ValidarTexto.validarPatronAlfanumericoEsValido(nombre, Mensajes.PATRON_NOMBRE_ASOCIACION_NO_ES_VALIDO);
 
         this.nombre = nombre;
@@ -35,7 +34,6 @@ public class Asociacion
     public void setNit(String nit)
     {
         ValidarTexto.validarObligatorio(nit, Mensajes.NIT_ASOCIACION_NO_PUEDE_ESTAR_VACIO);
-        ValidarTexto.validarSiLongitudEsValida(nit, 1, 11, Mensajes.LONGITUD_NIT_ASOCIACION_INVALIDO);
         ValidarTexto.validarPatronNITEsValido(nit, Mensajes.PATRON_NIT_ASOCIACION_NO_ES_VALIDO);
 
         this.nit = nit;
