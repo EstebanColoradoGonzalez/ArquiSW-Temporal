@@ -38,6 +38,7 @@ public class RolMapeador
             case TextoConstante.ROL_USUARIO -> 1L;
             case TextoConstante.ROL_ASOCIACION -> 2L;
             case TextoConstante.ROL_ADMINISTRADOR -> 3L;
+            case TextoConstante.ROL_POSTULADO -> 4L;
             default -> 0L;
         };
     }
