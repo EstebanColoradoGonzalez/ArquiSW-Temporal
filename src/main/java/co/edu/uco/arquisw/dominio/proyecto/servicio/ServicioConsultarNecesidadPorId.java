@@ -5,14 +5,14 @@ import co.edu.uco.arquisw.dominio.proyecto.puerto.consulta.NecesidadRepositorioC
 import co.edu.uco.arquisw.dominio.transversal.utilitario.Mensajes;
 import co.edu.uco.arquisw.dominio.transversal.validador.ValidarObjeto;
 
-public class ServicioConsultarNecesidadPorId {
-
+public class ServicioConsultarNecesidadPorId
+{
     private final NecesidadRepositorioConsulta necesidadRepositorioConsulta;
 
-    public ServicioConsultarNecesidadPorId(NecesidadRepositorioConsulta necesidadRepositorioConsulta) {
+    public ServicioConsultarNecesidadPorId(NecesidadRepositorioConsulta necesidadRepositorioConsulta)
+    {
         this.necesidadRepositorioConsulta = necesidadRepositorioConsulta;
     }
-
 
     public NecesidadDTO ejecutar(Long id)
     {

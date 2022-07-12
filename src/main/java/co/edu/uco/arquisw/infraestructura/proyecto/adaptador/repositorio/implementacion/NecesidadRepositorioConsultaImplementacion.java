@@ -63,7 +63,7 @@ public class NecesidadRepositorioConsultaImplementacion implements NecesidadRepo
     }
 
     @Override
-    public List<ProyectoDTO> consultarProyectos(Long proyectoID)
+    public List<ProyectoDTO> consultarProyectos()
     {
         var entidades = this.necesidadDAO.findAll();
 

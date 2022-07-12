@@ -1,6 +1,5 @@
 package co.edu.uco.arquisw.dominio.transversal.validador;
 
-import co.edu.uco.arquisw.dominio.transversal.excepciones.LongitudExcepcion;
 import co.edu.uco.arquisw.dominio.transversal.excepciones.PatronExcepcion;
 import co.edu.uco.arquisw.dominio.transversal.excepciones.ValorObligatorioExcepcion;
 
@@ -25,14 +24,6 @@ public class ValidarTexto
         if(cadenaEstaVacia(valor))
         {
             throw new ValorObligatorioExcepcion(mensaje);
-        }
-    }
-
-    public static void validarSiLongitudEsValida(String valor, int longitudMinima, int longitudMaxima, String mensaje)
-    {
-        if(longitudEsInvalida(valor, longitudMinima, longitudMaxima))
-        {
-            throw new LongitudExcepcion(mensaje);
         }
     }
 
@@ -112,21 +103,6 @@ public class ValidarTexto
         return ValidarObjeto.obtenerValorPorDefecto(string, "");
     }
 
-    public static boolean longitudMinimaValida(String string, int minimumLength)
-    {
-        return ValidarNumero.numeroEsMayorOIgual(aplicarTrim(string).length(), minimumLength);
-    }
-
-    public static boolean longitudMaximaValida(String string, int maximumLength)
-    {
-        return aplicarTrim(string).length() <= maximumLength;
-    }
-
-    public static boolean longitudEsInvalida(String string, int minimumLength, int maximumLength)
-    {
-        return !longitudMinimaValida(string, minimumLength) || !longitudMaximaValida(string, maximumLength);
-    }
-
     public static boolean cadenaAceptaElPatron(String string, String pattern)
     {
         return aplicarTrim(string).matches(pattern);
@@ -156,7 +132,6 @@ public class ValidarTexto
     {
         return cadenaAceptaElPatron(string, NIT);
     }
-
 
     public static boolean cadenaNumeroTelefono(String string)
     {
